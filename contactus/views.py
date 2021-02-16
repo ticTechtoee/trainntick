@@ -1,3 +1,6 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+# Contact function the is representation of the "Contact Us" Page on the website.
+
+def contact(request):
+    return HttpResponse('Hello')
