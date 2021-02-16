@@ -1,7 +1,7 @@
 from django.http import HttpResponse
-
+from django.shortcuts import render
 
 # home function the is representation of the "Home" Page on the website.
 
 def home(request):
-    return HttpResponse('Hello and welcome to the Home Page')
+    return render(request, 'home/home.html')
