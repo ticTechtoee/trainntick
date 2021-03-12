@@ -20,3 +20,16 @@ def home(request):
 
     else:
         return render(request, 'home/home.html')
+
+
+def login(request):
+    if request.method == 'POST':
+        user = auth.authenticate(username = request.POST['name'], password = request.POST['pass'])
+        if user is not None:
+            auth.login(request,user)
+            return redirect('home')
+        else:
+            return render(request, 'home/login.html', {'error': 'Username and Password Must Match in Any Case'})
+
+    else:
+        return render(request, 'home/login.html')
