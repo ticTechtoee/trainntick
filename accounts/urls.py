@@ -15,13 +15,9 @@ Including another URLconf
 """
 
 from django.urls import path
-import home.views
-import contactus.views
-
-from django.contrib import admin
-
+from .views import UserRegisterView
 
 urlpatterns = [
-    path('login', home.views.login, name='login'),
+    path('accounts/', UserRegisterView.as_view(), name='accounts'),
 ]
 

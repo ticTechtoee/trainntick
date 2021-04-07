@@ -30,7 +30,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'home.apps.HomeConfig',
+    'dashboard.apps.DashboardConfig',
+    'accounts.apps.AccountsConfig',
     'contactus.apps.ContactusConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'traintick.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [str(BASE_DIR.joinpath('templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,7 +122,10 @@ STATICFILES_DIRS = [
 
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 STATIC_URL = '/static/'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home' # new
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
